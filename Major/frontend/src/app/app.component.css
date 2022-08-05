@@ -1,0 +1,12 @@
+ .nav-item
+{
+  font-family:'Times New Roman', Times, serif;
+  color:white;
+  font-size: 22px;
+  margin: 5px;
+}
+app-footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

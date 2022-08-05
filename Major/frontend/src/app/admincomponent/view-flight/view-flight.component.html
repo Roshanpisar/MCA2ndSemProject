@@ -1,0 +1,75 @@
+<div>
+  <!-- <button type="button" class="btn btn-secondary btn-sm" [useExistingCss]="true" printSectionId="print-section" ngxPrint>Create pdf</button> --> 
+</div>
+
+<div class="container">
+ 
+  <h2 class="text-center"><u> Flight Details</u></h2>
+  <button  (click)="addFlight()" type="button" class="btn btn-primary btn-sm">Add Flight</button>
+  <div>
+    <button mat-icon-button color="accent" aria-label="Example icon-button with a pdf icon" [useExistingCss]="true" printSectionId="print-section" ngxPrint>
+      <mat-icon>print</mat-icon>
+    </button>
+    <input type="text" [(ngModel)]="searchStr" placeholder="enter flight name">
+    You are searching according to <b>{{searchStr}}</b>
+  </div>
+  <div id="print-section">
+    <table class="table table-striped ">
+      <thead class="thead-dark">
+        <tr>
+          <th>Flight Id</th>
+          <th>Flight Name</th>
+          <th>Capacity</th>
+          <th>Arrival Time</th>
+          <th>Departure Time</th>
+          <th>Schedule</th>
+          <th>Flight Date</th>
+          <th>Source</th>
+          <th>Destination</th>
+          <th>Price</th>
+          <th>Fares</th>
+          <th>Type</th>
+          <th>Trip</th>
+          <th>Edit</th>
+          <th>Delete</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let flight of flights | search:searchStr">
+          <td>{{flight.flightId}}</td>
+          <td>{{flight.flightName}}</td>
+          <td>{{flight.capacity}}</td>
+          <td><mat-icon>watch_later</mat-icon>{{flight.arrivalTime}}</td>
+          <td><mat-icon>schedule</mat-icon>{{flight.departureTime}}</td>
+          <td>{{flight.schedule}}</td>
+          <td><mat-icon>flight_takeoff</mat-icon>{{flight.flightDate | date:'shortDate'}}</td>
+          <td>{{flight.source}}</td>
+          <td>{{flight.destination}}</td>
+          <td>{{flight.price}}</td>
+          <td>{{flight.fares}}</td>
+          <td>{{flight.type}}</td>
+          <td>{{flight.trip}}</td>
+          <!-- <td>
+            <a (click)="updateFlight(flight.flightId)" class="btn-sm btn-success">Edit</a>
+          </td> -->
+          <td>
+            <button mat-fab color="primary" aria-label="Example icon button with a edit icon" (click)="updateFlight(flight.flightId)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+          <!-- <td><a class="btn-sm btn-danger" (click)="deleteCur(flight.flightId)">Delete</a></td> -->
+          <td>
+            <button mat-fab color="warn" aria-label="Example icon button with a delete icon" (click)="deleteCur(flight.flightId)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

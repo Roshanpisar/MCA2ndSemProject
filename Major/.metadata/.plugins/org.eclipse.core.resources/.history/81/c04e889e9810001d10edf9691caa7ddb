@@ -1,0 +1,76 @@
+package com.flight.controller;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.flight.exception.RecordNotFoundException;
+import com.flight.model.Booking;
+import com.flight.service.BookingService;
+
+@RestController
+@CrossOrigin(origins = "*")
+public class BookingController {
+	@Autowired
+	BookingService bookingService;
+
+
+	// Add Booking
+	@PostMapping("/addBooking")
+	public ResponseEntity<String> addBooking(@RequestBody Booking booking) {
+		bookingService.addBooking(booking);
+		return new ResponseEntity<String>("Booking added successfully", HttpStatus.CREATED);
+	}
+
+	// Fetch All Booking
+	@GetMapping("/getAllBooking")
+	public ResponseEntity<List<Booking>> getAllBooking() {
+		List<Booking> list = bookingService.getAllBooking();
+		return new ResponseEntity<List<Booking>>(list, HttpStatus.OK);
+	}
+
+	// Get Bookings For specific Booking Id
+	@GetMapping("/getBooking/{id}")
+	public ResponseEntity<Booking> getBooking(@PathVariable("id") int id) {
+		Booking booking = bookingService.getBookingById(id);
+		if (booking == null) {
+			throw new RecordNotFoundException("record not found");
+		}
+		return new ResponseEntity<Booking>(booking, HttpStatus.FOUND);
+	}
+
+	// Update Booking By Booking Id
+	@PutMapping("/updateBooking/{id}")
+	public ResponseEntity<String> updateBooking(@PathVariable int id, @RequestBody Booking booking) {
+		bookingService.updateBooking(id, booking);
+		return new ResponseEntity<String>("Booking updated successfully", HttpStatus.OK);
+	}
+
+	// For Canceling the Booked Ticket
+	@DeleteMapping("/deleteBooking/{id}")
+	public ResponseEntity<?> deleteBooking(@PathVariable int id) {
+		Booking ticket = bookingService.getBookingById(id);
+		bookingService.deleteBooking(id);
+		return new ResponseEntity<String>("Booking Cancelled successfully", HttpStatus.FOUND);
+	}
+
+	// For User to See all his bookings Fetched According to User Id
+	@GetMapping("/getBookings/{userId}")
+	public ResponseEntity<List<Booking>> getBookingByUserId(@PathVariable int userId) {
+		List<Booking> booking = bookingService.getBookingByUserId(userId);
+		if (booking == null) {
+			throw new RecordNotFoundException("record not found");
+		}
+		return new ResponseEntity<List<Booking>>(bookingService.getBookingByUserId(userId), HttpStatus.OK);
+	}
+
+}

@@ -1,0 +1,81 @@
+<div class="container">
+    <h1 class="text-center">UPDATE FLIGHT</h1>
+
+    <form class="row g-3" [formGroup]="updateFlightForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group col-md-4">
+            <label>Flight Name</label>
+            <input type="text" class="form-control" id="flightName" [(ngModel)]="flight.flightName"
+                formControlName="flightName">
+        </div>
+        <div class="form-group col-md-4">
+            <label>capacity</label>
+            <input type="number" class="form-control" id="capacity" [(ngModel)]="flight.capacity"
+                formControlName="capacity">
+        </div>
+        <div class="form-group col-md-4">
+            <label>price</label>
+            <input type="number" class="form-control" id="price" [(ngModel)]="flight.price" formControlName="price">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Source</label>
+            <input type="text" class="form-control" id="source" [(ngModel)]="flight.source" formControlName="source">
+        </div>
+        <div class="form-group col-md-4">
+            <label>destination</label>
+            <input type="text" class="form-control" id="destination" [(ngModel)]="flight.destination"
+                formControlName="destination">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Date</label>
+            <input type="date" class="form-control" id="date" [(ngModel)]="flight.flightDate"
+                formControlName="flightDate">
+        </div>
+        <div class="form-group col-md-4">
+            <label>arrivalTime</label>
+            <input type="text" class="form-control" id="arrivalTime" [(ngModel)]="flight.arrivalTime"
+                formControlName="arrivalTime">
+        </div>
+        <div class="form-group col-md-4">
+            <label>departureTime</label>
+            <input type="text" class="form-control" id="departureTime" [(ngModel)]="flight.departureTime"
+                formControlName="departureTime">
+        </div>
+        
+        <div class="form-group col-md-4">
+            <label>Schedule</label>
+            <input type="text" class="form-control" id="schedule" [(ngModel)]="flight.schedule"
+                formControlName="schedule">
+        </div>
+        <div class="d-flex justify-content-evenly">
+            <div class="form-group">
+                <label>Fares</label>
+                <br>
+                <select name="fares" id="fares" [(ngModel)]="flight.fares" formControlName="fares">
+                    <option value="refundable">Refundable</option>
+                    <option value="non refundable">Non refundable</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Trip</label>
+                <br>
+                <select name="trip" id="trip" [(ngModel)]="flight.trip" formControlName="trip">
+                    <option value="one way">one way</option>
+                    <option value="round trip">Round Trip</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Type of flight</label>
+                <br>
+                <select name="type" id="type" [(ngModel)]="flight.type" formControlName="type">
+                    <option value="economy">economy</option>
+                    <option value="premium">premium</option>
+                    <option value="business">business</option>
+                </select>
+            </div>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto mt-3 mb-3">
+            <button class="btn btn-warning" type="submit">Update</button>
+        </div>
+    </form>
+</div>

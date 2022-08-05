@@ -1,0 +1,64 @@
+<div class="pt-5">
+  <h1 id="ofbs" class="text-center">Online Flight Booking System</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5 mx-auto">
+        <div class="card card-body">
+          <!-- <div class="container-fluid" class="col-md-5 offset-md-3"> -->
+          <h2 class="text-center">Login</h2>
+          <div [hidden]="!hasError">
+            <h5 class="text-danger">Please Enter Valid User details</h5>
+          </div>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="email">Email: </label>
+              <input type="email" class="form-control" placeholder="Enter email" formControlName="email"
+                [(ngModel)]="user.email">
+              <div class="error" class="text-danger" *ngIf="loginForm.controls['email'].hasError('required') && 
+          loginForm.controls['email'].touched">Email is required
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="pwd">Password: </label>
+              <input type="password" class="form-control" placeholder="Enter password" formControlName="password"
+                [(ngModel)]="user.password">
+              <div class="error" class="text-danger" *ngIf="loginForm.controls['password'].hasError('required') 
+           && loginForm.controls['password'].touched"> Password is required
+              </div>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" name="rememberMe" formControlName="rememberMe" [(ngModel)]="rememberMe"> Remember me</label>
+            </div>
+            <br>
+            <div class="d-grid gap-2 col-6 mx-auto">
+            <button id="otp" type="submit" [disabled]="(loginForm.controls['email'].hasError('required') && 
+      loginForm.controls['email'].touched) || (loginForm.controls['password'].hasError('required') 
+      && loginForm.controls['password'].touched) || (!user.password) || (!user.email)" class="btn btn-info">Login</button>
+              </div>
+            <!-- Forget password Not Working-->
+            <a id="forpass"  routerLink="/forgetPassword" type="reset">Forgot Password</a>
+            <br>
+            <!--Register New User-->
+
+            <label for="register">Don't have an account? <a routerLink="/register">Click Here</a></label>
+            <!-- <a [routerLink]="['/register']" class="btn btn-link">Register</a> -->
+          </form>
+          <!-- <div [hidden]="!hasOtp">
+            <div class="form-group">
+
+              <label for="otp">OTP: </label>
+              <input type="number" class="form-control" #otp placeholder="Enter OTP" name="otp">
+            </div>
+            
+          
+            <div class="d-grid gap-2 col-6 mx-auto mt-3">
+              <button class="btn btn-info" (click)="check(otp.value)">Login</button>
+            </div>
+          </div> -->
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

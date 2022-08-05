@@ -1,0 +1,45 @@
+
+    <nav class="navbar navbar-expand-lg  navbar-light bg-light">
+        <div class="container-fluid">
+         
+          <a class="navbar-brand" routerLink="home">
+            <img src="https://img.freepik.com/free-vector/airplane-icon_1325-717.jpg?w=826" alt="" width="50" height="40"> <b>Flight Reservation</b>
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+              <li class="nav-item px-3">
+                <a class="nav-link" routerLink="searchFlight">Search Flight</a>
+              </li>
+              <li class="nav-item px-3">
+                <a class="nav-link"routerLink="showoffer">Offers</a>
+              </li>
+         
+         
+             
+            
+            </ul>
+              <li class="nav-item dropdown d-flex ps-0 ">
+                <a id="list2" class="nav-link dropdown-toggle ps-5" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Welcome {{userName}}</a>
+               
+              
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" routerLink="updateProfile">Update Profile</a></li>
+                  <li><a class="dropdown-item" routerLink="changePassword">Change Password</a></li>
+                  <li><a class="dropdown-item" routerLink="getBookingsbyUserId">My Bookings</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" (click)="logout()" href="login">Logout</a></li>
+                </ul>
+              </li>
+
+          </div>
+        </div>
+      </nav>
+
+  
+
+
+<router-outlet></router-outlet>

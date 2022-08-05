@@ -1,0 +1,94 @@
+<div class="container">
+    <h1 class="text-center">ADD FLIGHT</h1>
+
+    <div>
+        <form [formGroup]="addFlightForm" (ngSubmit)="onSubmit()" class="row g-3">
+            <div class="form-group col-md-4">
+                <label>Flight Name</label>
+                <input type="text" class="form-control" id="flightName" [(ngModel)]="flight.flightName"
+                    name="flightName" formControlName="flightName">
+            </div>
+            <div class="form-group col-md-4">
+                <label>Capacity</label>
+                <input type="number" class="form-control" id="totalSeats" [(ngModel)]="flight.capacity"
+                    formControlName="capacity">
+            </div>
+            <div class="form-group col-md-4">
+                <label>Price</label>
+                <input type="number" class="form-control" id="price" [(ngModel)]="flight.price" formControlName="price">
+            </div>
+            <div class="form-group col-md-4">
+                <label>Source</label>
+                <input type="text" class="form-control" id="source" [(ngModel)]="flight.source"
+                    formControlName="source">
+            </div>
+            <div class="form-group col-md-4">
+                <label>Destination</label>
+                <input type="text" class="form-control" id="destination" [(ngModel)]="flight.destination"
+                    formControlName="destination">
+            </div>
+            <div class="form-group col-md-4">
+                <label>Date</label>
+                <input type="date" class="form-control" id="flightDate" [(ngModel)]="flight.flightDate"
+                    formControlName="flightDate">
+            </div>
+            <!-- <div class="form-group col-md-4">
+                <mat-form-field>
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Choose a flight date"
+                        formControlName="flightDate" class="form-control" [(ngModel)]="flight.flightDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div> -->
+            <div class="form-group col-md-4">
+                <label>ArrivalTime</label>
+                <input type="text" class="form-control" id="arrivalTime" [(ngModel)]="flight.arrivalTime"
+                    formControlName="arrivalTime">
+
+            </div>
+            <div class="form-group col-md-4">
+                <label>DepartureTime</label>
+                <input type="text" class="form-control" id="departureTime" [(ngModel)]="flight.departureTime"
+                    formControlName="departureTime">
+            </div>
+            <div class="form-group col-md-4">
+                <label>Schedule</label>
+                <input type="text" class="form-control" id="schedule" [(ngModel)]="flight.schedule"
+                    formControlName="schedule">
+            </div>
+            <div class="d-flex justify-content-evenly">
+                <div class="form-group">
+                    <label>Fares</label>
+                    <br>
+                    <select name="fares" id="fares" [(ngModel)]="flight.fares" formControlName="fares">
+                        <option value="refundable">Refundable</option>
+                        <option value="non refundable">Non refundable</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Trip</label>
+                    <br>
+                    <select name="trip" id="trip" [(ngModel)]="flight.trip" formControlName="trip">
+                        <option value="one way">One way</option>
+                        <option value="round trip">Round Trip</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Type of flight</label>
+                    <br>
+                    <select name="type" id="type" [(ngModel)]="flight.type" formControlName="type">
+                        <option value="economy">Economy</option>
+                        <option value="premium">Premium</option>
+                        <option value="business">Business</option>
+                    </select>
+                </div>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto mt-3 mb-3">
+                <button class="btn btn-success" type="submit" [disabled]="addFlightForm.invalid">ADD</button>
+            </div>
+            <!-- [disabled]="addFlightForm.invalid" -->
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+#flightName,#source,#destination,#date,#arrivaltime,#schedule,#price{
+    pointer-events: none; 
+ }
+
+ #outercard{
+     
+     justify-content: center;
+     margin-left: 400px;
+     margin-top: 200px;
+     
+ }
+
+ #outer{
+     margin-top: 50px;
+ }
+
+ #submit{
+     margin-top: 20px;
+ }
+
+ div{
+     margin-top: 5px;
+ }
+
+ 
+
+ .form-group .button{
+    background: linear-gradient(to bottom right, #a8c0ff, #3f2b96);
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition :all, 0.2s, ease-in;
+    text-decoration: none;
+    width: 100%;
+    padding: 10px 20px;
+  }
+  .button:focus { outline: none; }
+  .form-group .button:hover{
+  background: linear-gradient(to  left, #a8c0ff, #3f2b96);
+  }
+  button{
+    transition-duration:0.3s;
+  }
+
+ 

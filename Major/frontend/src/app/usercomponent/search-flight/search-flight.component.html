@@ -1,0 +1,98 @@
+
+
+<div class="container-fluid">
+ 
+
+
+    
+       
+          <form class="form row pt-4" action="Searchflight" method="post">
+            <div class="form-group col-sm-4 px-5">
+            <form  style="width: 100%;" appearance="fill">
+              <label style="color: blue;">From</label>
+              <select class="form-select"  aria-label="Default select example" [(ngModel)]="startPoint" name="from" id="from">
+                <option value=""> </option>
+                <option value="agra">Agra</option>
+                <option value="pune">Pune</option>
+                <option value="delhi">Delhi</option>
+                <option value="mumbai">Mumbai</option>
+                
+              </select>
+            </form>
+            <p> Selected flight  : <b>{{startPoint}} </b></p>
+            </div>
+            <div class="form-group col-sm-4 px-5">
+              <form  style="width: 100%;" appearance="fill">
+                <label style="color: blue;">To</label>
+                <select class="form-select"  aria-label="Default select example" [(ngModel)]="destination" name="To" id="to">
+                  <option value=""> </option>
+                <option value="Chennai">Chennai</option>
+                <option value="Kolkata">kolkata</option>
+                <option value="delhi">Delhi</option>
+                <option value="mumbai">Mumbai</option>
+                </select>
+              </form>
+              <p> Selected flight  : <b>{{destination}}</b></p>
+            </div>
+             <div class="form-group col-sm-4 px-5">
+              <label style="color: blue;">Departure Date</label>
+              <input type="date" id="departure_date" name="departure_date" [(ngModel)]="departure_date" required>
+              <p> Selected Date  : <b>{{departure_date}}</b></p>
+
+            </div> 
+
+           
+
+            
+            <div class="col-sm-5"></div>
+            <div class="form-group flex-end col-sm-2">
+              <button type="button" class="button" (click)="getFields()" id="myButton">Search Flight</button>
+            </div>
+          </form>
+      
+       
+
+    
+    <div *ngIf="flights">
+      <div class="searchflight  d-flex justify-content-center m-3">
+        <input calss="form-control" id="filter" type="text" name="search" [(ngModel)]="searchflight" autocomplete="off" placeholder="Start Searching for a flight by Flightname,Source,Destination,Time,Fares,Trip,Type ">
+      </div>
+        <table class="table table-striped table-hover table-bordered ">
+        <thead>
+          <tr>
+            <th>Flight Name</th>
+            <th>Arrival Time</th>
+            <th>Departure Time</th>
+            <th>Schedule</th>
+            <th>Flight Date</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Capacity</th>
+            <th>Price</th>
+            <th>Trip</th>
+            <th>Type</th>
+            <th>Fares</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let flight of flights | filter:searchflight">
+            <td>{{flight.flightName}}</td>
+            <td>{{flight.arrivalTime}}</td>
+            <td>{{flight.departureTime}}</td>
+            <td>{{flight.schedule}}</td>
+            <td>{{flight.flightDate}}</td>
+            <td>{{flight.source}}</td>
+            <td>{{flight.destination}}</td>
+            <td>{{flight.capacity}}</td>
+            <td>{{flight.price}}</td>
+            <td>{{flight.trip}}</td>
+            <td>{{flight.type}}</td>
+            <td>{{flight.fares}}</td>
+            <td><button type="button" (click)="sendId(flight.flightId)" class="btn btn-primary">Book </button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>

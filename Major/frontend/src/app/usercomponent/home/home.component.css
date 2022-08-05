@@ -1,0 +1,29 @@
+.welcome-msg{
+    position: relative;
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+    top: 200px;
+  }
+  .welcome-msg a{
+    font-size: 20px;
+    color: white;
+    margin-left: 5px;
+    padding: 7px 22px;
+    text-decoration: none;
+    border: 1px solid #140459;
+    border-radius: 25px;
+    background: #140459;
+  }
+  .welcome-msg h1{
+    color: #140459;
+  }
+  .welcome-msg p{
+  padding: 7px 50px;
+  }
+
+  .section1{
+    height: 100%;
+  }
+
+  

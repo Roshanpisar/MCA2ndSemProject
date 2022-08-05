@@ -1,0 +1,34 @@
+[INFO ] 07-07-2022 02:19:58.483 PM [http-nio-8082-exec-7] BookingController - Flights Accesed
+[INFO ] 07-07-2022 02:20:02.919 PM [http-nio-8082-exec-8] BookingController - All Offer Clicked
+[INFO ] 07-07-2022 02:20:06.288 PM [http-nio-8082-exec-9] BookingController - Admin Accesed all  Complaints
+[INFO ] 07-07-2022 02:21:22.604 PM [http-nio-8082-exec-4] BookingController - Flights Accesed
+[INFO ] 07-07-2022 02:25:31.015 PM [http-nio-8082-exec-7] BookingController - Flights Accesed
+[INFO ] 07-07-2022 02:25:32.896 PM [http-nio-8082-exec-8] BookingController - All Offer Clicked
+[INFO ] 07-07-2022 02:25:34.593 PM [http-nio-8082-exec-9] BookingController - Admin Accesed all  Complaints
+[INFO ] 07-07-2022 02:25:37.689 PM [http-nio-8082-exec-10] BookingController - Flights Accesed
+[INFO ] 07-07-2022 03:03:32.376 PM [http-nio-8082-exec-4] BookingController - Admin Added New Flight
+[INFO ] 07-07-2022 03:03:39.143 PM [http-nio-8082-exec-2] BookingController - Flights Accesed
+[INFO ] 07-07-2022 03:05:00.611 PM [http-nio-8082-exec-6] BookingController - Admin Added New Flight
+[INFO ] 07-07-2022 03:05:02.429 PM [http-nio-8082-exec-7] BookingController - Flights Accesed
+[INFO ] 07-07-2022 03:05:18.426 PM [http-nio-8082-exec-8] BookingController - All Offer Clicked
+[INFO ] 07-07-2022 03:05:49.987 PM [http-nio-8082-exec-10] BookingController - Admin Added New Offer
+[INFO ] 07-07-2022 03:05:51.263 PM [http-nio-8082-exec-1] BookingController - All Offer Clicked
+[INFO ] 07-07-2022 03:06:15.123 PM [http-nio-8082-exec-3] BookingController - Admin Added New Offer
+[INFO ] 07-07-2022 03:06:15.942 PM [http-nio-8082-exec-4] BookingController - All Offer Clicked
+[INFO ] 07-07-2022 03:06:17.904 PM [http-nio-8082-exec-2] BookingController - Admin Accesed all  Complaints
+[INFO ] 07-07-2022 03:06:21.018 PM [http-nio-8082-exec-6] BookingController - Admin Saw All Bookings
+[INFO ] 07-07-2022 03:07:07.434 PM [http-nio-8082-exec-8] BookingController - Flights Accesed
+[INFO ] 07-07-2022 03:08:11.351 PM [http-nio-8082-exec-10] BookingController - User Clicked on Search Flight button 
+[INFO ] 07-07-2022 03:10:02.544 PM [http-nio-8082-exec-3] BookingController - Flights Accesed
+[INFO ] 07-07-2022 03:11:21.410 PM [http-nio-8082-exec-2] BookingController - Admin Added New Flight
+[INFO ] 07-07-2022 03:11:23.293 PM [http-nio-8082-exec-5] BookingController - Flights Accesed
+[INFO ] 07-07-2022 03:11:34.561 PM [http-nio-8082-exec-6] BookingController - User Clicked on Search Flight button 
+[INFO ] 07-07-2022 03:11:40.126 PM [http-nio-8082-exec-7] BookingController - User Clicked on Search Flight button 
+[INFO ] 07-07-2022 03:11:43.513 PM [http-nio-8082-exec-8] BookingController - Flights Accesed
+[INFO ] 07-07-2022 03:11:54.487 PM [http-nio-8082-exec-9] BookingController - User Clicked on Search Flight button 
+[INFO ] 08-07-2022 12:29:19.824 PM [http-nio-8082-exec-1] BookingController - All Offer Clicked
+[INFO ] 08-07-2022 12:29:26.154 PM [http-nio-8082-exec-3] BookingController - All Offer Clicked
+[INFO ] 08-07-2022 12:29:31.278 PM [http-nio-8082-exec-4] BookingController - Admin Accesed all  Complaints
+[INFO ] 08-07-2022 12:29:44.133 PM [http-nio-8082-exec-5] BookingController - User Added Complaint
+[INFO ] 08-07-2022 12:29:53.154 PM [http-nio-8082-exec-6] BookingController - Admin Accesed all  Complaints
+[INFO ] 08-07-2022 12:30:07.479 PM [http-nio-8082-exec-9] BookingController - Admin Accesed all  Complaints

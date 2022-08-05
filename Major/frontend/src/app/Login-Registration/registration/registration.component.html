@@ -1,0 +1,137 @@
+<div class="pt-5">
+    <h1 class="text-center">Online Flight Booking System</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5 mx-auto">
+                <div class="card card-body">
+
+                    <h2 class="text-center mb-3">Registration</h2>
+
+                    <form [formGroup]="RegistrationForm" autocomplete="off" (ngSubmit)="onSubmit()">
+
+                        <div class="form-group">
+                            <label>Name: </label>
+                            <input type="text" autocomplete="off" class="form-control" id="name" formControlName="name" 
+                            placeholder="Enter Name" required>
+                            <div class="error" class="text-danger"
+                                *ngIf="RegistrationForm.controls['name'].hasError('required') && RegistrationForm.controls['name'].touched">
+                                Name is required</div>
+                            <div class="error" class="text-danger"
+                                *ngIf="RegistrationForm.controls['name'].hasError('pattern') ">Only Alphabet Allowed</div>
+                            <div class="error" class="text-danger"
+                                *ngIf="RegistrationForm.controls['name'].hasError('minlength')">Minimum 3 character required
+                            </div>
+                            <div class="error" class="text-danger"
+                            *ngIf="RegistrationForm.controls['name'].hasError('maxlength')">Maximun 30 character required
+                            </div>
+                        </div>
+                        
+
+                        <div class="form-group">
+                            <label>Email: </label>
+                            <input type="email" autocomplete="off" class="form-control" id="email" formControlName="email" 
+                            placeholder="Enter Email" required>
+                            <div class="error" class="text-danger"
+                                *ngIf="RegistrationForm.controls['email'].hasError('required') && RegistrationForm.controls['email'].touched">
+                                Email is required</div>
+                        </div>
+                       
+
+                        <div class="form-group">
+                            <label>Phone: </label>
+                            <input type="text" autocomplete="off" class="form-control" id="phone" formControlName="phone" 
+                            placeholder="phone number xxx-xxx-xxxx" required>
+                            <div class="error" class="text-danger"
+                                *ngIf="RegistrationForm.controls['phone'].hasError('required') && RegistrationForm.controls['phone'].touched">
+                                Phone is required</div>
+                            <div class="error" class="text-danger"
+                                *ngIf="RegistrationForm.controls['phone'].hasError('pattern') || 
+                                RegistrationForm.controls['phone'].hasError('minlength') && RegistrationForm.controls['phone'].touched ||
+                                RegistrationForm.controls['phone'].hasError('maxlength') && RegistrationForm.controls['phone'].touched " >Phone number must be at least 10 numbers</div>
+                            <!-- <div class="error" class="text-danger"
+                                *ngIf="RegistrationForm.controls['phone'].hasError('minlength') && RegistrationForm.controls['phone'].touched">
+                                Minimum 10 digit required</div>
+                            <div class="error" class="text-danger"
+                                *ngIf="RegistrationForm.controls['phone'].hasError('maxlength') && RegistrationForm.controls['phone'].touched">
+                                Maximun 10 digit required</div> -->
+                            
+                            
+                        </div>
+                        
+
+                        <div class="form-group">
+                            <label>Gender: </label><br>
+                            <select class="form-select" aria-label="Default select example" class="form-control" id="gender"
+                                formControlName="gender" required>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                            <div class="error" class="text-danger"
+                                *ngIf="RegistrationForm.controls['gender'].hasError('required') && RegistrationForm.controls['gender'].touched">
+                                Select Gender this field is required</div>
+                        </div>
+                            <!-- <input type="radio" class="form-control" formControlName="gender" id="male" name="gender" value="Male"
+                                required>
+                                <label for="male">Male</label>
+                                <input type="radio" class="form-control" formControlName="gender" id="female" name="gender" value="Female"
+                                required>
+                                <label for="female">Female</label><br>
+
+                                <div class="error" class="text-danger"
+                                    *ngIf="RegistrationForm.controls['gender'].hasError('required') && RegistrationForm.controls['gender'].touched">
+                                    gender is required</div> 
+                            -->
+                                
+
+                        <!-- 
+                            <div class="form-group">
+                            <label>DOB: </label>
+                            <input type="date" autocomplete="off" formControlName="dob" class="form-control"
+                                [(ngModel)]="user.dob">
+                            <div class="error" class="text-danger"
+                                *ngIf="registrationForm.controls['dob'].hasError('required') && registrationForm.controls['dob'].touched">
+                                dob is required</div>
+                            </div> 
+                        -->
+                        <div class="form-group">
+                            <label>DOB: </label>   
+                            <input type="date" class="form-control" id="dob" formControlName="dob" max="{{currentDate | date:'yyyy-MM-dd'}}" required >
+                            <div class="error" class="text-danger"
+                                *ngIf="RegistrationForm.controls['dob'].hasError('required') && RegistrationForm.controls['dob'].touched">
+                                Date is required</div>
+                        </div>
+                        
+                      
+
+                        <div class="form-group">
+                            <label>Password: </label>
+                            <input type="password" autocomplete="off" class="form-control" id="password" formControlName="password"
+                                placeholder="Enter password" required>
+                                <div class="error" class="text-danger"
+                                *ngIf="RegistrationForm.controls['password'].hasError('required') && RegistrationForm.controls['password'].touched">
+                                Password is required</div>
+                            <div class="error" class="text-danger"
+                                *ngIf="RegistrationForm.controls['password'].hasError('pattern') && RegistrationForm.controls['password'].touched">
+                                Password Must be strong atleast contain 1 Upper case, 1 Lower case, 1 Special character, min 8
+                                character</div>
+                        </div>
+                        
+                        
+                        <hr>
+
+                        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                        <div class="d-grid gap-2 col-6 mx-auto mt-3">
+                            <button type="submit" [disabled]='RegistrationForm.invalid' class="btn btn-info">Register</button>
+                        </div>
+                        <div class="container signin">
+                            <p>Already have an account? <a href="#" routerLink="/login">Sign in</a>.</p>
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

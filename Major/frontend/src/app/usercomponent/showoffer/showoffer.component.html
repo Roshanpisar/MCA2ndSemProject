@@ -1,0 +1,46 @@
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+
+<div class="main"></div>
+<div class="main m-3">
+  <div class="loader pt-5">
+    <span style="--i:1;"></span>
+    <span style="--i:2;"></span>
+    <span style="--i:3;"></span>
+    <span style="--i:4;"></span>
+    <span style="--i:5;"></span>
+    <span style="--i:6;"></span>
+    <span style="--i:7;"></span>
+    <span style="--i:8;"></span>
+    <span style="--i:9;"></span>
+    <span style="--i:10;"></span>
+ 
+    <span style="--i:11;"></span>
+    <span style="--i:12;"></span>
+    <span style="--i:13;"></span>
+    <span style="--i:14;"></span>
+    <span style="--i:15;"></span>
+    <span style="--i:16;"></span>
+    <span style="--i:17;"></span>
+    <span style="--i:18;"></span>
+    <span style="--i:19;"></span>
+    <span style="--i:20;"></span>
+    <div class="row"  *ngFor="let item of offers" >
+      <div class=" col-sm-1"></div>
+          <div class=" col-sm-10">
+        <div class="card d-flex justify-content-center"  >
+          <div class="card-body ">
+            <h1 class="card-title d-flex justify-content-center">{{item.offerName}}    </h1>
+            <h2 class=" d-flex justify-content-center"><b>Discount : &nbsp;</b>{{item.discount}}  &nbsp;  &nbsp;   <b>Coupon Code  : &nbsp;</b> {{item.coupon}}</h2>
+           
+           
+          
+        </div>
+       
+      </div>
+      <br>
+          </div>
+     <br>
+<div class="rocket"></div>
+  </div>
+

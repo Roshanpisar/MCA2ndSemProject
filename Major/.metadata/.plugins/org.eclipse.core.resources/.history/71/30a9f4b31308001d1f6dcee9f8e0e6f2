@@ -1,0 +1,94 @@
+package com.cybage.controller;
+
+import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cybage.exception.RecordNotFoundException;
+import com.cybage.model.Flight;
+import com.cybage.service.FlightService;
+
+@RestController
+@CrossOrigin(origins = "*")
+public class FlightController {
+	@Autowired
+	FlightService flightService;
+
+	// For Adding New Flight
+	@PostMapping("/addFlight")
+	public ResponseEntity<String> addFlight(@RequestBody Flight flight) {
+		flightService.addFlight(flight);
+		return new ResponseEntity<String>("Flight added successfully with id = " + flight.getFlightId(),
+				HttpStatus.CREATED);
+	}
+
+	// For Accessing All Flight
+	@GetMapping("/getAllFlights")
+	public ResponseEntity<List<Flight>> getAllFlights() {
+		List<Flight> list = flightService.getAllFlights();
+		return new ResponseEntity<>(list, HttpStatus.OK);
+
+	}
+
+	// For Accessing Flight w.r.t Flight Id
+	@GetMapping("/getFlight/{id}")
+	public Flight getFlight(@PathVariable int id) {
+		Flight flight = flightService.getFlightById(id);
+		if (flight == null) {
+			throw new RecordNotFoundException("No record found");
+		}
+		return flight;
+
+	}
+
+	// For Deleting Flight According to Flight Id
+	@DeleteMapping("/deleteFlight/{id}")
+	public ResponseEntity<String> deleteFlight(@PathVariable int id) {
+		flightService.deleteFlight(id);
+		return new ResponseEntity<String>("Flight deleted successfully", HttpStatus.OK);
+	}
+
+	// For Updating Flight According to Flight Id
+	@PutMapping("/updateFlight/{id}")
+	public ResponseEntity<String> UpdateFlight(@PathVariable int id, @RequestBody Flight flight) {
+		flightService.UpdateFlight(flight);
+		return new ResponseEntity<String>("Flight updated successfully", HttpStatus.OK);
+
+	}
+
+	// For Getting All The Flights
+	@GetMapping("/getFlights")
+	public List<Flight> getFlightByRoute(@RequestParam String source, @RequestParam String destination) {
+		List<Flight> flight = flightService.GetByRoute(source, destination);
+		return flight;
+	}
+
+	// For Searching Flight According To Schedule
+	@GetMapping("/getFlightsBySchedule")
+	public List<Flight> getFlightByDepartureTime(@RequestParam String schedule) {
+		List<Flight> flight = flightService.GetBySchedule(schedule);
+		return flight;
+
+	}
+
+	// For Searching Flight According to Source,Destination and Departure Date
+	@GetMapping("/getFlightsByDate")
+	public List<Flight> getFlightByRouteAndDate(@RequestParam String source, @RequestParam String destination,
+			@RequestParam String flightDate) {
+		System.out.println(flightService.GetByDateAndRoute(source, destination, flightDate) + "hii");
+		return flightService.GetByDateAndRoute(source, destination, flightDate);
+	}
+}
